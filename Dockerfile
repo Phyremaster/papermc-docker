@@ -1,7 +1,7 @@
 # Debian base
 FROM debian:latest
 
-# Variables
+# Environment variables
 ENV MC_VERSION="1.14.2"
 ENV MC_RAM="1G"
 
