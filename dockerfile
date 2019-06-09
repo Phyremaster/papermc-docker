@@ -11,9 +11,10 @@ RUN apt-get install -y --allow-unauthenticated default-jre
 
 # PaperMC setup
 ADD papermc.sh .
+RUN chmod +x papermc.sh
 
 # Start script
-CMD papermc.sh
+CMD ./papermc.sh
 
 # Container setup
 EXPOSE 25565/tcp

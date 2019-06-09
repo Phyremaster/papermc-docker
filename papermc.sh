@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Enter server directory
 mkdir papermc
 cd papermc
