@@ -16,4 +16,4 @@ if [ ! -e papermc-${MC_VERSION}.jar ]
 fi
 
 # Start server
-java -Xms${MC_RAM} -Xmx${MC_RAM} -jar /papermc/papermc-${MC_VERSION}.jar nogui
+java -Xms${MC_RAM} -Xmx${MC_RAM} -jar papermc-${MC_VERSION}.jar nogui

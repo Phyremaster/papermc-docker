@@ -10,6 +10,7 @@ RUN apt-get update
 RUN apt-get install -y --allow-unauthenticated default-jre
 
 # PaperMC setup
+RUN apt-get install -y --allow-unauthenticated wget
 ADD papermc.sh .
 RUN chmod +x papermc.sh
 
