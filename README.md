@@ -38,7 +38,7 @@ Environment variables are options that are specified in the format `-e <NAME>="<
   - Note: there must be a PaperMC release for the specified version of Minecraft.
   - If this is not set, the latest version supported by PaperMC will be used.
   - Changing this on an existing server will change the version *without wiping the server*.
-  - `-e MC_VERSION="<1.14.2>"`
+  - `-e MC_VERSION="<1.14.3>"`
 - RAM
   - **Name:** `MC_RAM`
   - Set this to the amount of RAM the server can use.
