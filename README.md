@@ -38,7 +38,7 @@ Environment variables are options that are specified in the format `-e <NAME>="<
   - Note: there must be a PaperMC release for the specified version of Minecraft.
   - If this is not set, the latest version supported by PaperMC will be used.
   - Changing this on an existing server will change the version *without wiping the server*.
-  - `-e MC_VERSION="<1.14.2>"`
+  - `-e MC_VERSION="<1.14.3>"`
 - RAM
   - **Name:** `MC_RAM`
   - Set this to the amount of RAM the server can use.
@@ -50,4 +50,7 @@ From this point, the server should be configured in the same way as any other Mi
 # Technical
 This project *does **NOT** redistribute the Minecraft server files*. Instead, the (very small) script that is inside of the image, `papermc.sh`, downloads these files from their official sources during installation.
 
+**PLEASE NOTE:** This is an unofficial project. I did not create PaperMC. [This is the official PaperMC website.](https://papermc.io/)
+
+This project has a [GitHub page](https://github.com/Phyremaster/papermc-docker).
 This project has a [Docker Hub page](https://hub.docker.com/r/phyremaster/papermc).
