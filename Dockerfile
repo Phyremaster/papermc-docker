@@ -7,7 +7,7 @@ ENV MC_RAM="1G"
 
 # Java setup
 RUN apt-get update
-RUN apt-get install -y --allow-unauthenticated default-jre
+RUN apt-get install -y --allow-unauthenticated default-jdk
 
 # PaperMC setup
 RUN apt-get install -y --allow-unauthenticated wget
