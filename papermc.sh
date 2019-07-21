@@ -16,4 +16,4 @@ if [ ! -e papermc-${MC_VERSION}.jar ]
 fi
 
 # Start server
-java -server -Xms${MC_RAM} -Xmx${MC_RAM} -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:+CMSIncrementalPacing -XX:ParallelGCThreads=2 -XX:+AggressiveOpts -jar papermc-${MC_VERSION}.jar nogui
+java -server -Xms${MC_RAM} -Xmx${MC_RAM} -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalPacing -XX:ParallelGCThreads=2 -XX:+AggressiveOpts -jar papermc-${MC_VERSION}.jar nogui
