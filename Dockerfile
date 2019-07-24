@@ -2,7 +2,7 @@
 FROM debian:latest
 
 # Environment variables
-ENV MC_VERSION="1.14.3"
+ENV MC_VERSION="1.14.4"
 ENV MC_RAM="1G"
 
 # Java setup
