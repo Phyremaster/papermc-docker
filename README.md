@@ -22,6 +22,14 @@ There are several command line options that users may want to specify when utili
   - Alternatively, set this to a path to a folder on your computer.
   - `-v <my_volume_name>:/papermc`
   - `-v </path/to/files>:/papermc`
+- Detached
+  - Include this to make the container independent from the current command line.
+  - `-d`
+- Terminal/Console
+  - Include these flags if you want access to the server's command line via `docker attach`.
+  - These flags can be specified separately or as one option.
+  - `-t` and `-i` in any order
+  - `-ti` or `-it`
 - Restart Policy
   - If you include this, the server will automatically restart if it stops.
   - Stopping the *container* will override this automatic restarting.
