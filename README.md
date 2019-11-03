@@ -49,7 +49,7 @@ Environment variables are options that are specified in the format `-e <NAME>="<
   - `-e MC_VERSION="<1.14.4>"`
 - Version
   - **Name:** `PAPER_BUILD`
-  - Set this to the papermc build number that the server should use.
+  - Set this to the PaperMC build number that the server should use.
   - If this is not set, the latest PaperMC build will be used.
   - Changing this on an existing server will change the version *without wiping the server*.
   - `-e PAPER_BUILD="<latest>"`
