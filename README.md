@@ -39,7 +39,7 @@ There are several command line options that users may want to specify when utili
   - `--name "<my-container-name>"`
 There is one more command line option, but it is a bit special and deserves its own section.
 ### Environment Variables
-Environment variables are options that are specified in the format `-e <NAME>="<VALUE>"` where `<NAME>` is the name of the environment variable and `<VALUE>` is the value that the environment variable is being set to. This image has two environment variables:
+Environment variables are options that are specified in the format `-e <NAME>="<VALUE>"` where `<NAME>` is the name of the environment variable and `<VALUE>` is the value that the environment variable is being set to. This image has three environment variables:
 - Version
   - **Name:** `MC_VERSION`
   - Set this to the Minecraft version that the server should support.
@@ -47,6 +47,12 @@ Environment variables are options that are specified in the format `-e <NAME>="<
   - If this is not set, the latest version supported by PaperMC will be used.
   - Changing this on an existing server will change the version *without wiping the server*.
   - `-e MC_VERSION="<1.14.4>"`
+- Version
+  - **Name:** `PAPER_BUILD`
+  - Set this to the papermc build number that the server should use.
+  - If this is not set, the latest PaperMC build will be used.
+  - Changing this on an existing server will change the version *without wiping the server*.
+  - `-e PAPER_BUILD="<latest>"`
 - RAM
   - **Name:** `MC_RAM`
   - Set this to the amount of RAM the server can use.
