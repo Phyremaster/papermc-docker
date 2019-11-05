@@ -31,9 +31,10 @@ There are several command line options that users may want to specify when utili
   - `-t` and `-i` in any order
   - `-ti` or `-it`
 - Restart Policy
-  - If you include this, the server will automatically restart if it stops.
-  - Stopping the *container* will override this automatic restarting.
-  - `--restart always`
+  - If you include this, the server will automatically restart if it crashes.
+  - Stopping the server from its console will still stop the container.
+  - It is highly recommended to only stop the server from its console (not via Docker).
+  - `--restart on-failure`
 - Name
   - Set this to a name for the container (defaults to a couple of random words).
   - `--name "<my-container-name>"`
@@ -66,5 +67,6 @@ This project *does **NOT** redistribute the Minecraft server files*. Instead, th
 
 **PLEASE NOTE:** This is an unofficial project. I did not create PaperMC. [This is the official PaperMC website.](https://papermc.io/)
 
-This project has a [GitHub page](https://github.com/Phyremaster/papermc-docker).
-This project has a [Docker Hub page](https://hub.docker.com/r/phyremaster/papermc).
+## Project Pages
+- [GitHub page](https://github.com/Phyremaster/papermc-docker).
+- [Docker Hub page](https://hub.docker.com/r/phyremaster/papermc).
