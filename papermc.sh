@@ -7,7 +7,7 @@ cd papermc
 JAR_NAME=papermc-${MC_VERSION}-${PAPER_BUILD}
 
 # Preform initial setup
-if [ ! -e ${JAR_NAME}.jar ]
+if [ ! -e ${JAR_NAME}.jar ] || [ ${PAPER_BUILD} = latest ]
   then
     wget https://papermc.io/api/v1/paper/${MC_VERSION}/${PAPER_BUILD}/download -O ${JAR_NAME}.jar
     if [ ! -e eula.txt ]
