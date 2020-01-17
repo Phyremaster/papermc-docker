@@ -18,4 +18,4 @@ if [ ! -e ${JARNAME}.jar ]
 fi
 
 # Start server
-java -server -Xms${MC_RAM} -Xmx${MC_RAM} -jar ${JAR_NAME}.jar nogui
+java -server -Xms${MC_RAM} -Xmx${MC_RAM} {JAVA_OPTS} -jar ${JAR_NAME}.jar nogui

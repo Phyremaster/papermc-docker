@@ -41,14 +41,14 @@ There are several command line options that users may want to specify when utili
 There is one more command line option, but it is a bit special and deserves its own section.
 ### Environment Variables
 Environment variables are options that are specified in the format `-e <NAME>="<VALUE>"` where `<NAME>` is the name of the environment variable and `<VALUE>` is the value that the environment variable is being set to. This image has three environment variables:
-- Version
+- Minecraft Version
   - **Name:** `MC_VERSION`
   - Set this to the Minecraft version that the server should support.
   - Note: there must be a PaperMC release for the specified version of Minecraft.
   - If this is not set, the latest version supported by PaperMC will be used.
   - Changing this on an existing server will change the version *without wiping the server*.
   - `-e MC_VERSION="<1.14.4>"`
-- Version
+- PaperMC Build
   - **Name:** `PAPER_BUILD`
   - Set this to the PaperMC build number that the server should use.
   - If this is not set, the latest PaperMC build will be used.
@@ -60,6 +60,12 @@ Environment variables are options that are specified in the format `-e <NAME>="<
   - Must be formatted as a number followed by `M` for "Megabytes" or `G` for "Gigabytes".
   - If this is not set, it will use 1 Gigabyte of RAM default.
   - `-e MC_RAM="<4G>"`
+- Java options
+  - **Name:** `JAVA_OPTS`
+  - **ADVANCED USERS ONLY**
+  - Set to any additional Java command line options that you would like to include.
+  - By default, this environment variable is set to the empty string.
+  - `-e JAVA_OPTS="-XX:+UseConcMarkSweepGC -XX:+UseParNewGC"`
 ## Further Setup
 From this point, the server should be configured in the same way as any other Minecraft server. The server's files, including `server.properties`, can be found in the volume that was specified earlier. The port that was specified earlier will probably need to be forwarded as well. For details on how to do this and other such configuration, Google it, because it works the same as any other Minecraft server.
 # Technical

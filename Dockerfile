@@ -5,6 +5,7 @@ FROM debian:latest
 ENV MC_VERSION="1.15.1"
 ENV PAPER_BUILD="latest"
 ENV MC_RAM="1G"
+ENV JAVA_OPTS=""
 
 # Java setup
 RUN apt-get update
