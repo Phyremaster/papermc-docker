@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Enter server directory
-mkdir papermc
+mkdir -p papermc
 cd papermc
 
 JAR_NAME=papermc-${MC_VERSION}-${PAPER_BUILD}
 
 # Preform initial setup
-if [ ! -e ${JARNAME}.jar ]
+if [ ! -e ${JAR_NAME}.jar ]
   then
     wget https://papermc.io/api/v1/paper/${MC_VERSION}/${PAPER_BUILD}/download -O ${JAR_NAME}.jar
     if [ ! -e eula.txt ]
