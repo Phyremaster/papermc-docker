@@ -2,7 +2,7 @@
 FROM debian:latest
 
 # Environment variables
-ENV MC_VERSION="1.15.1"
+ENV MC_VERSION="1.15.2"
 ENV PAPER_BUILD="latest"
 ENV MC_RAM="1G"
 ENV JAVA_OPTS=""
