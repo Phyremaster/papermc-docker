@@ -1,23 +1,19 @@
-# Debian base
-FROM debian:latest
+# JRE base
+FROM openjdk:11.0-jre-slim
 
 # Environment variables
-ENV MC_VERSION="1.15.2"
-ENV PAPER_BUILD="latest"
-ENV MC_RAM="1G"
-ENV JAVA_OPTS=""
+ENV MC_VERSION="1.15.2" \
+    PAPER_BUILD="latest" \
+    MC_RAM="1G" \
+    JAVA_OPTS=""
 
-# Java setup
-RUN apt-get update
-RUN apt-get install -y --allow-unauthenticated default-jdk
-
-# PaperMC setup
-RUN apt-get install -y --allow-unauthenticated wget
 ADD papermc.sh .
-RUN chmod +x papermc.sh
+RUN apt-get update \
+    && apt-get install -y wget \
+    && rm -rf /var/lib/apt/lists/*
 
 # Start script
-CMD ./papermc.sh
+CMD ["sh", "./papermc.sh"]
 
 # Container setup
 EXPOSE 25565/tcp
