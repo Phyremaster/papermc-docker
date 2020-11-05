@@ -7,8 +7,10 @@ This image provides a basic PaperMC server. All customizations are left to the u
 It is assumed that the user has already acquired a working Docker installation. If that is not the case, go do that and come back here when you're done.
 ## Command
 With this image, you can create a new PaperMC Minecraft server with one command (note that running said command indicates agreement to the Minecraft EULA). Here is an example:
+
 ```sudo docker run -p 25565:25565 phyremaster/papermc```
-While this command will work just fine in many cases, it is vastly improved by specifying some...
+
+While this command will work just fine in many cases, it is only the bare minimum required to start a functional server and can be vastly improved by specifying some...
 ## Options
 There are several command line options that users may want to specify when utilizing this image. These options are listed below with some brief explanation. An example will be provided with each. In the example, the part that the user can change will be surrounded by angle brackets (`< >`). Remember to *remove the angle brackets* before running the command.
 - Port
@@ -40,7 +42,7 @@ There are several command line options that users may want to specify when utili
   - `--name "<my-container-name>"`
 There is one more command line option, but it is a bit special and deserves its own section.
 ### Environment Variables
-Environment variables are options that are specified in the format `-e <NAME>="<VALUE>"` where `<NAME>` is the name of the environment variable and `<VALUE>` is the value that the environment variable is being set to. This image has three environment variables:
+Environment variables are options that are specified in the format `-e <NAME>="<VALUE>"` where `<NAME>` is the name of the environment variable and `<VALUE>` is the value that the environment variable is being set to. This image has four environment variables:
 - Minecraft Version
   - **Name:** `MC_VERSION`
   - Set this to the Minecraft version that the server should support.
