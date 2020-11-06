@@ -10,7 +10,9 @@ ENV MC_VERSION="1.16.3" \
 ADD papermc.sh .
 RUN apt-get update \
     && apt-get install -y wget \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && mkdir /papermc \
+    && wget https://papermc.io/api/v1/paper/${MC_VERSION}/latest -O /papermc/latest
 
 # Start script
 CMD ["sh", "./papermc.sh"]

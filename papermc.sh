@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Enter server directory
-mkdir -p papermc
 cd papermc
 
 JAR_NAME=papermc-${MC_VERSION}-${PAPER_BUILD}
@@ -11,9 +10,9 @@ outdated=false
 urlPrefix=https://papermc.io/api/v1/paper/${MC_VERSION}
 if [ ${PAPER_BUILD} = latest ]
   then
-    outdated= [ "$(wget -q -O- ${urlPrefix}/latest | diff -s latest  -)" != "Files latest and - are identical" ]
-      if ${outdated}
+      if [ "$(wget -q -O- ${urlPrefix}/latest | diff -s latest  -)" != "Files latest and - are identical" ]
         then
+	  outdated=true
           wget ${urlPrefix}/latest -O latest
       fi
 fi
