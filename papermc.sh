@@ -3,29 +3,26 @@
 # Enter server directory
 cd papermc
 
-JAR_NAME=papermc-${MC_VERSION}-${PAPER_BUILD}
-
 # Perform initial setup
 outdated=false
-urlPrefix=https://papermc.io/api/v1/paper/${MC_VERSION}
+urlPrefix=https://papermc.io/api/v2/projects/paper/versions/${MC_VERSION}
 if [ ${PAPER_BUILD} = latest ]
   then
-      if [ "$(wget -q -O- ${urlPrefix}/latest | diff -s latest  -)" != "Files latest and - are identical" ]
-        then
-	  outdated=true
-          wget ${urlPrefix}/latest -O latest
-      fi
+      # Get the latest build
+      PAPER_BUILD=$(wget -qO - $urlPrefix | jq '.builds[-1]')
 fi
 
-if [ ! -e ${JAR_NAME}.jar ] || ${outdated}
+JAR_NAME=papermc-${MC_VERSION}-${PAPER_BUILD}.jar
+
+if [ ! -e ${JAR_NAME} ]
   then
-    wget ${urlPrefix}/${PAPER_BUILD}/download -O ${JAR_NAME}.jar
+    wget ${urlPrefix}/builds/${PAPER_BUILD}/downloads/paper-${MC_VERSION}-${PAPER_BUILD}.jar -O ${JAR_NAME}
     if [ ! -e eula.txt ]
     then
-      java -jar ${JAR_NAME}.jar
+      java -jar ${JAR_NAME}
       sed -i 's/false/true/g' eula.txt
     fi
 fi
 
 # Start server
-java -server -Xms${MC_RAM} -Xmx${MC_RAM} ${JAVA_OPTS} -jar ${JAR_NAME}.jar nogui
+java -server -Xms${MC_RAM} -Xmx${MC_RAM} ${JAVA_OPTS} -jar ${JAR_NAME} nogui
