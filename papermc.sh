@@ -16,6 +16,7 @@ JAR_NAME=papermc-${MC_VERSION}-${PAPER_BUILD}.jar
 
 if [ ! -e ${JAR_NAME} ]
   then
+    rm -f *.jar
     wget ${urlPrefix}/builds/${PAPER_BUILD}/downloads/paper-${MC_VERSION}-${PAPER_BUILD}.jar -O ${JAR_NAME}
     if [ ! -e eula.txt ]
     then
