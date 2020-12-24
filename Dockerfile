@@ -7,7 +7,6 @@ ENV MC_VERSION="1.16.4" \
     MC_RAM="1G" \
     JAVA_OPTS=""
 
-# Dependencies
 ADD papermc.sh .
 RUN apt-get update;
 RUN apt-get install -y wget
