@@ -7,12 +7,13 @@ ENV MC_VERSION="1.16.4" \
     MC_RAM="1G" \
     JAVA_OPTS=""
 
+# Dependencies
 ADD papermc.sh .
-RUN apt-get update;
-RUN apt-get install -y wget
-RUN apt-get install -y jq
-RUN rm -rf /var/lib/apt/lists/*
-RUN mkdir /papermc
+RUN apt-get update \
+    apt-get install -y wget \
+    apt-get install -y jq \
+    rm -rf /var/lib/apt/lists/* \
+    mkdir /papermc
 
 # Start script
 CMD ["sh", "./papermc.sh"]
