@@ -8,7 +8,7 @@ ENV MC_VERSION="1.16.4" \
     JAVA_OPTS=""
 
 ADD papermc.sh .
-RUN apt-get update
+RUN apt-get update;
 RUN apt-get install -y wget
 RUN apt-get install -y jq
 RUN rm -rf /var/lib/apt/lists/*
