@@ -4,7 +4,6 @@
 cd papermc
 
 # Perform initial setup
-outdated=false
 urlPrefix=https://papermc.io/api/v2/projects/paper
 if [ ${MC_VERSION} = latest ]
   then
