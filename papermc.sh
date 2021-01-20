@@ -31,4 +31,4 @@ if [ ! -e ${JAR_NAME} ]
 fi
 
 # Start server
-java -server -Xms${MC_RAM} -Xmx${MC_RAM} ${JAVA_OPTS} -jar ${JAR_NAME} nogui
+exec java -server -Xms${MC_RAM} -Xmx${MC_RAM} ${JAVA_OPTS} -jar ${JAR_NAME} nogui
