@@ -2,7 +2,7 @@
 FROM arm64v8/openjdk:11.0-jre-slim
 
 # Environment variables
-ENV MC_VERSION="1.16.4" \
+ENV MC_VERSION="latest" \
     PAPER_BUILD="latest" \
     MC_RAM="1G" \
     JAVA_OPTS=""

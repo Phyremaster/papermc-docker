@@ -4,8 +4,13 @@
 cd papermc
 
 # Perform initial setup
-outdated=false
-urlPrefix=https://papermc.io/api/v2/projects/paper/versions/${MC_VERSION}
+urlPrefix=https://papermc.io/api/v2/projects/paper
+if [ ${MC_VERSION} = latest ]
+  then
+    # Get the latest MC version
+    MC_VERSION=$(wget -qO - $urlPrefix | jq -r '.versions[-1]') # "-r" is needed because the output has quotes otherwise
+fi
+urlPrefix=${urlPrefix}/versions/${MC_VERSION}
 if [ ${PAPER_BUILD} = latest ]
   then
       # Get the latest build
@@ -26,4 +31,4 @@ if [ ! -e ${JAR_NAME} ]
 fi
 
 # Start server
-java -server -Xms${MC_RAM} -Xmx${MC_RAM} ${JAVA_OPTS} -jar ${JAR_NAME} nogui
+exec java -server -Xms${MC_RAM} -Xmx${MC_RAM} ${JAVA_OPTS} -jar ${JAR_NAME} nogui
