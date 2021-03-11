@@ -1,5 +1,5 @@
 # JRE base
-FROM arm64v8/openjdk:11.0-jre-slim
+FROM arm64v8/alpine:latest
 
 # Environment variables
 ENV MC_VERSION="latest" \
@@ -9,11 +9,10 @@ ENV MC_VERSION="latest" \
 
 # Dependencies
 ADD papermc.sh .
-RUN apt-get update \
-    apt-get install -y wget \
-    apt-get install -y jq \
-    rm -rf /var/lib/apt/lists/* \
-    mkdir /papermc
+RUN apk add --no-cache \
+        openjdk11-jre-headless \
+        wget jq \
+    && mkdir /papermc
 
 # Start script
 CMD ["sh", "./papermc.sh"]
