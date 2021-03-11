@@ -1,5 +1,5 @@
 # JRE base
-FROM openjdk:11.0-jre-slim
+FROM alpine:latest
 
 # Environment variables
 ENV MC_VERSION="latest" \
@@ -8,10 +8,9 @@ ENV MC_VERSION="latest" \
     JAVA_OPTS=""
 
 ADD papermc.sh .
-RUN apt-get update \
-    && apt-get install -y wget \
-    && apt-get install -y jq \
-    && rm -rf /var/lib/apt/lists/* \
+RUN apk add --no-cache \
+        openjdk11-jre-headless \
+        wget jq \
     && mkdir /papermc
 
 # Start script
