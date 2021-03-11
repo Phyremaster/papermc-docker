@@ -9,7 +9,7 @@ ENV MC_VERSION="latest" \
 
 ADD papermc.sh .
 RUN apk add --no-cache \
-        openjdk11-jre-headless \
+        openjdk8-jre-base \
         wget jq \
     && mkdir /papermc
 
