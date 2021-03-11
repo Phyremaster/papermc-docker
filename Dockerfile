@@ -1,5 +1,5 @@
 # JRE base
-FROM alpine:latest
+FROM arm64v8/alpine:latest
 
 # Environment variables
 ENV MC_VERSION="latest" \
@@ -7,6 +7,7 @@ ENV MC_VERSION="latest" \
     MC_RAM="1G" \
     JAVA_OPTS=""
 
+# Dependencies
 ADD papermc.sh .
 RUN apk add --no-cache \
         openjdk11-jre-headless \
