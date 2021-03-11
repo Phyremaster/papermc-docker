@@ -1,5 +1,5 @@
 # JRE base
-FROM arm64v8/alpine:latest
+FROM alpine:latest
 
 # Environment variables
 ENV MC_VERSION="latest" \
