@@ -52,8 +52,8 @@ Environment variables are options that are specified in the format `-e <NAME>="<
   - `-e MC_VERSION="<latest>"`
 - PaperMC Build
   - **Name:** `PAPER_BUILD`
-  - Set this to the number of the PaperMC build that the server should use (**not the Minecraft version**).
-  - If this is not set, the latest PaperMC build for the specified `MC_VERSION` will be used.
+  - Set this to the PaperMC build number that the server should use.
+  - If this is not set, the latest PaperMC build will be used.
   - Changing this on an existing server will change the version *without wiping the server*.
   - `-e PAPER_BUILD="<latest>"`
 - RAM

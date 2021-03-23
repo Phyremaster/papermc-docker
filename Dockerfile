@@ -1,5 +1,5 @@
 # JRE base
-FROM alpine:latest
+FROM openjdk:8-jre-slim
 
 # Environment variables
 ENV MC_VERSION="latest" \
@@ -9,9 +9,10 @@ ENV MC_VERSION="latest" \
 
 # Dependencies
 ADD papermc.sh .
-RUN apk add --no-cache \
-        openjdk8-jre-base \
-        wget jq \
+RUN apt-get update \
+    && apt-get install -y wget \
+    && apt-get install -y jq \
+    && rm -rf /var/lib/apt/lists/* \
     && mkdir /papermc
 
 # Start script
