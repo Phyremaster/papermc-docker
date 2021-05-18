@@ -1,16 +1,18 @@
-# PaperMC Docker
-This is a Linux Docker image for the PaperMC Minecraft server.
+# Timi's PaperMC Docker
+This is a Linux Docker image for the PaperMC Minecraft server originally made by [Phyremaster](https://github.com/Phyremaster/), modified to run my home-Minecraft-server.
+### If you want to run your own Minecraft-Server please use [Phyremaster's version](https://github.com/Phyremaster/papermc-docker).
 
 PaperMC is an optimized Minecraft server with plugin support (Bukkit, Spigot, Sponge, etc.).
-This image provides a basic PaperMC server. All customizations are left to the user.
-# Usage
-It is assumed that the user has already acquired a working Docker installation. If that is not the case, go do that and come back here when you're done.
-## Command
-With this image, you can create a new PaperMC Minecraft server with one command (note that running said command indicates agreement to the Minecraft EULA). Here is an example:
 
+**This image runs an existing PaperMC server from a pre-existing directory. It's customized with the dynmap-plugin and serval others.**
+
+# Usage
+### This repo is very specific to my needs. You probably don't want to use it.
+
+## Command
+Execute:
 ```sudo docker run -p 25565:25565 phyremaster/papermc```
 
-While this command will work just fine in many cases, it is only the bare minimum required to start a functional server and can be vastly improved by specifying some...
 ## Options
 There are several command line options that users may want to specify when utilizing this image. These options are listed below with some brief explanation. An example will be provided with each. In the example, the part that the user can change will be surrounded by angle brackets (`< >`). Remember to *remove the angle brackets* before running the command.
 - Port
@@ -21,8 +23,7 @@ There are several command line options that users may want to specify when utili
   - `-p <12345>:25565 -p <6789>:25575`
 - Volume
   - Set this to a name for the server's Docker volume (defaults to randomized gibberish).
-  - Alternatively, set this to a path to a folder on your computer.
-  - `-v <my_volume_name>:/papermc`
+  - This needs to be set to the existing server-installation on the host.
   - `-v </path/to/files>:/papermc`
 - Detached
   - Include this to make the container independent from the current command line.
@@ -40,7 +41,8 @@ There are several command line options that users may want to specify when utili
 - Name
   - Set this to a name for the container (defaults to a couple of random words).
   - `--name "<my-container-name>"`
-There is one more command line option, but it is a bit special and deserves its own section.
+There is one more command line option, but it is a bit special and deserves its own section:
+
 ### Environment Variables
 Environment variables are options that are specified in the format `-e <NAME>="<VALUE>"` where `<NAME>` is the name of the environment variable and `<VALUE>` is the value that the environment variable is being set to. This image has four environment variables:
 - Minecraft Version
