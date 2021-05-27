@@ -4,7 +4,7 @@ FROM openjdk:16-slim
 # Environment variables
 ENV MC_VERSION="latest" \
     PAPER_BUILD="latest" \
-    MC_RAM="1G" \
+    MC_RAM="4G" \
     JAVA_OPTS=""
 
 ADD papermc.sh .
