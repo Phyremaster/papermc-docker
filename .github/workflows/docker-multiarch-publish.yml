@@ -2,13 +2,9 @@ name: Docker multiarch publish
 # from https://github.com/marklagendijk/node-toogoodtogo-watcher/blob/master/.github/workflows/docker-multiarch-publish.yml
 
 on:
-  release:
-    types: [published]
-    tags:
-      - "v*"
   push:
-    tags:
-      - "v*"
+    branches: [ master ]
+  workflow_dispatch: # Manual trigger
 
 jobs:
   buildandpush:
@@ -50,7 +46,7 @@ jobs:
         with:
           context: .
           file: Dockerfile
-          platforms: linux/amd64,linux/arm/v7,linux/arm64
+          platforms: linux/amd64,,linux/arm64
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:latest
