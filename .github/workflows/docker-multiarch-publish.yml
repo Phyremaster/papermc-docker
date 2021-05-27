@@ -13,11 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # https://github.com/martinbeentjes/npm-get-version-action
-      - name: Get version from package.json
-        id: package-version
-        uses: martinbeentjes/npm-get-version-action@master
-
       # https://github.com/docker/setup-qemu-action#usage
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
