@@ -18,13 +18,6 @@ jobs:
         id: package-version
         uses: martinbeentjes/npm-get-version-action@master
 
-      # https://github.com/booxmedialtd/ws-action-parse-semver
-      - name: Parse version
-        id: semver-version
-        uses: booxmedialtd/ws-action-parse-semver@v1.3.1
-        with:
-          input_string: ${{ steps.package-version.outputs.current-version}}
-
       # https://github.com/docker/setup-qemu-action#usage
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
