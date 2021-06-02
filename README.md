@@ -67,7 +67,7 @@ Environment variables are options that are specified in the format `-e <NAME>="<
   - **ADVANCED USERS ONLY**
   - Set to any additional Java command line options that you would like to include.
   - By default, this environment variable is set to the empty string.
-  - `-e JAVA_OPTS="-XX:+UseConcMarkSweepGC -XX:+UseParNewGC"`
+  - `-e JAVA_OPTS="<-XX:+UseConcMarkSweepGC -XX:+UseParNewGC>"`
 ## Further Setup
 From this point, the server should be configured in the same way as any other Minecraft server. The server's files, including `server.properties`, can be found in the volume that was specified earlier. The port that was specified earlier will probably need to be forwarded as well. For details on how to do this and other such configuration, Google it, because it works the same as any other Minecraft server.
 # Technical
