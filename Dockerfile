@@ -1,5 +1,5 @@
 # JRE base
-FROM openjdk:16-slim
+FROM openjdk:8-jre-slim
 
 # Environment variables
 ENV MC_VERSION="latest" \
@@ -7,6 +7,7 @@ ENV MC_VERSION="latest" \
     MC_RAM="1G" \
     JAVA_OPTS=""
 
+# Dependencies
 ADD papermc.sh .
 RUN apt-get update \
     && apt-get install -y wget \
