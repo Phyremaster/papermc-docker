@@ -4,7 +4,7 @@ FROM openjdk:8-jre-slim
 # Environment variables
 ENV MC_VERSION="latest" \
     PAPER_BUILD="latest" \
-    MC_RAM="1G" \
+    MC_RAM="" \
     JAVA_OPTS=""
 
 # Dependencies
