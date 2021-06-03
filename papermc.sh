@@ -16,7 +16,7 @@ then
   # Get the latest build
   PAPER_BUILD=$(wget -qO - $URL | jq '.builds[-1]')
 fi
-JAR_NAME=papermc-${MC_VERSION}-${PAPER_BUILD}.jar
+JAR_NAME=paper-${MC_VERSION}-${PAPER_BUILD}.jar
 URL=${URL}/builds/${PAPER_BUILD}/downloads/${JAR_NAME}
 
 # Update if necessary
