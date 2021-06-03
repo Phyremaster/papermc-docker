@@ -60,7 +60,7 @@ Environment variables are options that are specified in the format `-e <NAME>="<
   - **Name:** `MC_RAM`
   - Set this to the amount of RAM the server can use.
   - Must be formatted as a number followed by `M` for "Megabytes" or `G` for "Gigabytes".
-  - If this is not set, it will use 1 Gigabyte of RAM default.
+  - If this is not set, Java allocates its own RAM based on total system/container RAM.
   - `-e MC_RAM="<4G>"`
 - Java options
   - **Name:** `JAVA_OPTS`
