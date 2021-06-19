@@ -8,17 +8,24 @@ DOCKER_GROUP='mcdockergroup'
 
 # Check User and init
 if ! id "$DOCKER_USER" >/dev/null 2>&1; then
-    echo "First start of the docker container, start initialization process."
+  echo "First start of the docker container, start initialization process."
 
-    USER_ID=${PUID:-9001}
-    GROUP_ID=${PGID:-9001}
-    echo "Starting with $USER_ID:$GROUP_ID (UID:GID)"
+  USER_ID=${PUID:-9001}
+  GROUP_ID=${PGID:-9001}
+  echo "Starting with $USER_ID:$GROUP_ID (UID:GID)"
 
-    groupadd -f -g $GROUP_ID $DOCKER_GROUP
-    useradd --shell /bin/bash -u $USER_ID -g $GROUP_ID -o -c "" -m $DOCKER_USER
+  groupadd -f -g $GROUP_ID $DOCKER_GROUP
+  useradd --shell /bin/bash -u $USER_ID -g $GROUP_ID -o -c "" -m $DOCKER_USER
+fi
 
-    chown -vR $USER_ID:$GROUP_ID /papermc
-    chmod -vR ug+rwx /papermc
+# Check directory ownership and update
+FOLDER_OWNER=$(stat -c "%U" /papermc)
+FOLDER_GROUP=$(stat -c "%G" /papermc)
+
+if [ "$FOLDER_OWNER" != "$DOCKER_USER" ]
+then
+  chown -vR $USER_ID:$GROUP_ID /papermc
+  chmod -vR ug+rwx /papermc
 fi
 
 # Get version information and build download URL and jar name
@@ -55,8 +62,6 @@ fi
 
 # Edit eula.txt to accept the EULA
 gosu $DOCKER_USER sed -i 's/false/true/g' eula.txt
-
-gosu $DOCKER_USER cat eula.txt
 
 # Add RAM options to Java options if necessary
 if [ ! -z "${MC_RAM}" ]
