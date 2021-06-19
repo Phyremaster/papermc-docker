@@ -11,8 +11,12 @@ ADD papermc.sh .
 RUN apt-get update \
     && apt-get install -y wget \
     && apt-get install -y jq \
+    && apt-get install -y gosu \
     && rm -rf /var/lib/apt/lists/* \
     && mkdir /papermc
+
+# verify that gosu works
+RUN gosu nobody true
 
 # Start script
 CMD ["sh", "./papermc.sh"]

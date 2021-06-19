@@ -40,6 +40,7 @@ There are several command line options that users may want to specify when utili
 - Name
   - Set this to a name for the container (defaults to a couple of random words).
   - `--name "<my-container-name>"`
+
 There is one more command line option, but it is a bit special and deserves its own section.
 ### Environment Variables
 Environment variables are options that are specified in the format `-e <NAME>="<VALUE>"` where `<NAME>` is the name of the environment variable and `<VALUE>` is the value that the environment variable is being set to. This image has four environment variables:
@@ -68,6 +69,12 @@ Environment variables are options that are specified in the format `-e <NAME>="<
   - Set to any additional Java command line options that you would like to include.
   - By default, this environment variable is set to the empty string.
   - `-e JAVA_OPTS="<-XX:+UseConcMarkSweepGC -XX:+UseParNewGC>"`
+- User/Group
+  - **Name:** `PUID` or `PGID`
+  - You can get the desired UID/GID (xxx) with the ID command (id username)
+  - `-e PUID=xxx`
+  - `-e PGID=xxx`
+
 ## Further Setup
 From this point, the server should be configured in the same way as any other Minecraft server. The server's files, including `server.properties`, can be found in the volume that was specified earlier. The port that was specified earlier will probably need to be forwarded as well. For details on how to do this and other such configuration, Google it, because it works the same as any other Minecraft server.
 # Technical
