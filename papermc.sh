@@ -24,8 +24,9 @@ FOLDER_GROUP=$(stat -c "%G" /papermc)
 
 if [ "$FOLDER_OWNER" != "$DOCKER_USER" ]
 then
-  chown -vR $USER_ID:$GROUP_ID /papermc
-  chmod -vR ug+rwx /papermc
+  echo "Updating folder ownership"
+  chown -R $USER_ID:$GROUP_ID /papermc
+  chmod ug+rwx /papermc
 fi
 
 # Get version information and build download URL and jar name
