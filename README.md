@@ -69,12 +69,12 @@ Environment variables are options that are specified in the format `-e <NAME>="<
   - Set to any additional Java command line options that you would like to include.
   - By default, this environment variable is set to the empty string.
   - `-e JAVA_OPTS="<-XX:+UseConcMarkSweepGC -XX:+UseParNewGC>"`
-- Custom packages
-  - **Name** `CUSTOM_APT_PACKAGES`
+- Allow network file system
+  - **Name** `ALLOW_NFS`
   - **ADVANCED USERS ONLY**
-  - Set this to a space-separated list of additional apt packages to install while the container is built. Useful if you are trying to do something like mount an NFS share into your container as a volume.
+  - Set this to `1` if you are trying to mount an NFS share into your container as a volume. This will install the `nfs-common` package into your container.
   - By default, this environment variable is set to the empty string.
-  - `-e CUSTOM_APT_PACKAGES="nfs-common cifs-utils"`
+  - `-e ALLOW_NFS="1"`
 ## Further Setup
 From this point, the server should be configured in the same way as any other Minecraft server. The server's files, including `server.properties`, can be found in the volume that was specified earlier. The port that was specified earlier will probably need to be forwarded as well. For details on how to do this and other such configuration, Google it, because it works the same as any other Minecraft server.
 # Technical
