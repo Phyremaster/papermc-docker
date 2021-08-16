@@ -11,7 +11,7 @@ ENV MC_VERSION="latest" \
 ADD papermc.sh .
 RUN apt-get update \
     && apt-get install -y wget \
-    && apt-get install -y jq
+    && apt-get install -y jq \
     # Install nfs-common when ALLOW_NFS is set
     && { test "$ALLOW_NFS" && apt-get install -y nfs-common; true; } \
     && rm -rf /var/lib/apt/lists/* \
