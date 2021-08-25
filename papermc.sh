@@ -1,7 +1,9 @@
 #!/bin/bash
+# papermc.sh
+# Download and run the papermc server
 
 # Enter server directory
-cd papermc
+cd /papermc
 
 # Get version information and build download URL and jar name
 URL=https://papermc.io/api/v2/projects/paper

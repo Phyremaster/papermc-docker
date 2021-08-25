@@ -63,12 +63,34 @@ Environment variables are options that are specified in the format `-e <NAME>="<
   - Must be formatted as a number followed by `M` for "Megabytes" or `G` for "Gigabytes".
   - If this is not set, Java allocates its own RAM based on total system/container RAM.
   - `-e MC_RAM="<4G>"`
-- Java options
+- Java Options
   - **Name:** `JAVA_OPTS`
   - **ADVANCED USERS ONLY**
   - Set to any additional Java command line options that you would like to include.
   - By default, this environment variable is set to the empty string.
   - `-e JAVA_OPTS="<-XX:+UseConcMarkSweepGC -XX:+UseParNewGC>"`
+- User ID
+  - **Name:** `PUID`
+  - **ADVANCED USERS ONLY**
+  - Changes the numeric user ID of the user running the server inside the container
+  - You can set this to a user ID on your host; useful for running inside Portainer or Rancher
+  - By default, this environment variable is set to the empty string.
+  - `-e PUID="<1234>"`
+- Group ID
+  - **Name:** `PGID`
+  - **ADVANCED USERS ONLY**
+  - Changes the numeric group ID of the user running the server inside the container
+  - You can set this to a group ID on your host; useful for running inside Portainer or Rancher
+  - By default, this environment variable is set to the empty string.
+  - `-e PGID="<1234>"`
+- Tmux Session Name
+  - **Name:** `TMUX_SESSION`
+  - **ADVANCED USERS ONLY**
+  - Set to any snake_case ascii string. This is what your tmux session will be named.
+  - This is useful for entering commands directly into the server console when you don't have access to the terminal window that started the server.
+  - From any shell inside the container, you can run `tmux attach -t server_console` (or whatever you chose to name it), and you'll have access to the minecraft server console.
+  - By default, this environment variable is set to `server_console`.
+  - `-e TMUX_SESSION="<server_console>"`
 ## Further Setup
 From this point, the server should be configured in the same way as any other Minecraft server. The server's files, including `server.properties`, can be found in the volume that was specified earlier. The port that was specified earlier will probably need to be forwarded as well. For details on how to do this and other such configuration, Google it, because it works the same as any other Minecraft server.
 # Technical
