@@ -40,9 +40,10 @@ There are several command line options that users may want to specify when utili
 - Name
   - Set this to a name for the container (defaults to a couple of random words).
   - `--name "<my-container-name>"`
+
 There is one more command line option, but it is a bit special and deserves its own section.
 ### Environment Variables
-Environment variables are options that are specified in the format `-e <NAME>="<VALUE>"` where `<NAME>` is the name of the environment variable and `<VALUE>` is the value that the environment variable is being set to. This image has four environment variables:
+Environment variables are options that are specified in the format `-e <NAME>="<VALUE>"` where `<NAME>` is the name of the environment variable and `<VALUE>` is the value that the environment variable is being set to. Please note that setting an evironment variable with no value does not leave it at default; instead, this sets it to an empty string, which may cause issues. This image has four environment variables:
 - Minecraft Version
   - **Name:** `MC_VERSION`
   - Set this to the Minecraft version that the server should support.
