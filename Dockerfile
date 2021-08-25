@@ -7,7 +7,7 @@ ENV MC_VERSION="latest" \
     MC_RAM="" \
     JAVA_OPTS=""
 
-ADD papermc.sh .
+COPY papermc.sh .
 RUN apt-get update \
     && apt-get install -y wget \
     && apt-get install -y jq \
