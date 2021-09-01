@@ -28,6 +28,7 @@ VOLUME /papermc
 WORKDIR /papermc
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY papermc.sh /usr/local/bin/papermc.sh
+COPY tmux.conf /etc/tmux.conf
 
 # User resolution order:
 # 1. If run with 'docker run --user', the server is run as that user.
