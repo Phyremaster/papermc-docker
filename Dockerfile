@@ -1,5 +1,13 @@
 # JRE base
-FROM openjdk:16-slim
+FROM amazoncorretto:19.0.1
+
+# Place script at root
+WORKDIR /
+
+# Container setup
+EXPOSE 25565/tcp
+EXPOSE 25565/udp
+VOLUME /papermc
 
 # Environment variables
 ENV MC_VERSION="latest" \
@@ -9,15 +17,9 @@ ENV MC_VERSION="latest" \
 
 COPY papermc.sh .
 RUN apt-get update \
-    && apt-get install -y wget \
-    && apt-get install -y jq \
+    && apt-get install --no-install-recommends -y wget jq\
     && rm -rf /var/lib/apt/lists/* \
     && mkdir /papermc
 
 # Start script
 CMD ["sh", "./papermc.sh"]
-
-# Container setup
-EXPOSE 25565/tcp
-EXPOSE 25565/udp
-VOLUME /papermc

@@ -1,17 +1,24 @@
 # PaperMC Docker
+
 This is a Linux Docker image for the PaperMC Minecraft server.
 
 PaperMC is an optimized Minecraft server with plugin support (Bukkit, Spigot, Sponge, etc.).
 This image provides a basic PaperMC server. All customizations are left to the user.
+
 # Usage
-It is assumed that the user has already acquired a working Docker installation. If that is not the case, go do that and come back here when you're done.
+
+It is assumed that the user has already acquired a working Docker installation.
+
 ## Command
+
 With this image, you can create a new PaperMC Minecraft server with one command (note that running said command indicates agreement to the Minecraft EULA). Here is an example:
 
-```sudo docker run -p 25565:25565 phyremaster/papermc```
+```sudo docker run -p 25565:25565 enigodupont/papermc```
 
 While this command will work just fine in many cases, it is only the bare minimum required to start a functional server and can be vastly improved by specifying some...
+
 ## Options
+
 There are several command line options that users may want to specify when utilizing this image. These options are listed below with some brief explanation. An example will be provided with each. In the example, the part that the user can change will be surrounded by angle brackets (`< >`). Remember to *remove the angle brackets* before running the command.
 - Port
   - This option must be specified. Use port `25565` if you don't know what this is.
@@ -42,7 +49,9 @@ There are several command line options that users may want to specify when utili
   - `--name "<my-container-name>"`
 
 There is one more command line option, but it is a bit special and deserves its own section.
+
 ### Environment Variables
+
 Environment variables are options that are specified in the format `-e <NAME>="<VALUE>"` where `<NAME>` is the name of the environment variable and `<VALUE>` is the value that the environment variable is being set to. Please note that setting an evironment variable with no value does not leave it at default; instead, this sets it to an empty string, which may cause issues. This image has four environment variables:
 - Minecraft Version
   - **Name:** `MC_VERSION`
@@ -69,13 +78,21 @@ Environment variables are options that are specified in the format `-e <NAME>="<
   - Set to any additional Java command line options that you would like to include.
   - By default, this environment variable is set to the empty string.
   - `-e JAVA_OPTS="<-XX:+UseConcMarkSweepGC -XX:+UseParNewGC>"`
+
 ## Further Setup
+
 From this point, the server should be configured in the same way as any other Minecraft server. The server's files, including `server.properties`, can be found in the volume that was specified earlier. The port that was specified earlier will probably need to be forwarded as well. For details on how to do this and other such configuration, Google it, because it works the same as any other Minecraft server.
+
 # Technical
+
 This project *does **NOT** redistribute the Minecraft server files*. Instead, the (very small) script that is inside of the image, `papermc.sh`, downloads these files from their official sources during installation.
 
-**PLEASE NOTE:** This is an unofficial project. I did not create PaperMC. [This is the official PaperMC website.](https://papermc.io/)
+**PLEASE NOTE:** 
+
+- This is an unofficial project. I did not create PaperMC. [This is the official PaperMC website.](https://papermc.io/)
+- This is a fork of the original papermc-docker project, which can be found [here](https://github.com/Phyremaster/papermc-docker)
 
 ## Project Pages
-- [GitHub page](https://github.com/Phyremaster/papermc-docker).
-- [Docker Hub page](https://hub.docker.com/r/phyremaster/papermc).
+
+- [GitHub page](https://github.com/enigodupont/papermc-docker).
+- [Docker Hub page](https://hub.docker.com/r/enigodupont/papermc).
