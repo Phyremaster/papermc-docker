@@ -18,7 +18,7 @@ RUN apk update \
     && mkdir /papermc
 
 # Start script
-CMD ["sh", "./papermc.sh"]
+CMD ["bash", "./papermc.sh"]
 
 # Container setup
 EXPOSE 25565/tcp
