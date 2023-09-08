@@ -4,12 +4,12 @@
 cd papermc
 
 # Set nullstrings back to 'latest'
-: ${MC_VERSION:=latest}
-: ${PAPER_BUILD:=latest}
+: ${MC_VERSION:='latest'}
+: ${PAPER_BUILD:='latest'}
 
 # Lowercase these to avoid 404 errors on wget
-MC_VERSION=${MC_VERSION,,}
-PAPER_BUILD=${PAPER_BUILD,,}
+MC_VERSION="${MC_VERSION,,}"
+PAPER_BUILD="${PAPER_BUILD,,}"
 
 # Get version information and build download URL and jar name
 URL='https://papermc.io/api/v2/projects/paper'
