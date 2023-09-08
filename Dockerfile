@@ -6,6 +6,7 @@ FROM alpine:latest
 # Environment variables
 ENV MC_VERSION="latest" \
     PAPER_BUILD="latest" \
+    EULA="false" \
     MC_RAM="" \
     JAVA_OPTS=""
 

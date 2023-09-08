@@ -34,16 +34,10 @@ then
   rm -f *.jar
   # Download new server jar
   wget "$URL" -O "$JAR_NAME"
-  
-  # If this is the first run, accept the EULA
-  if [[ ! -e eula.txt ]]
-  then
-    # Run the server once to generate eula.txt
-    java -jar "$JAR_NAME"
-    # Edit eula.txt to accept the EULA
-    sed -i 's/false/true/g' eula.txt
-  fi
 fi
+
+# Update eula.txt with current setting
+echo "eula=${EULA:-false}" > eula.txt
 
 # Add RAM options to Java options if necessary
 if [[ -n $MC_RAM ]]

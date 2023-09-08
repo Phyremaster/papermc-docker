@@ -8,7 +8,7 @@ It is assumed that the user has already acquired a working Docker installation. 
 ## Command
 With this image, you can create a new PaperMC Minecraft server with one command (note that running said command indicates agreement to the Minecraft EULA). Here is an example:
 
-```sudo docker run -p 25565:25565 phyremaster/papermc```
+```sudo docker run -p 25565:25565 -e EULA="true" phyremaster/papermc```
 
 While this command will work just fine in many cases, it is only the bare minimum required to start a functional server and can be vastly improved by specifying some...
 ## Options
@@ -57,6 +57,11 @@ Environment variables are options that are specified in the format `-e <NAME>="<
   - If this is not set, the latest PaperMC build for the specified `MC_VERSION` will be used.
   - Changing this on an existing server will change the version *without wiping the server*.
   - `-e PAPER_BUILD="<latest>"`
+- EULA
+  - **Name:** `EULA`
+  - Set this to `true` to accept the Minecraft server EULA
+  - **The server will not start if this is not set to `true`**
+  - `-e EULA="true"`
 - RAM
   - **Name:** `MC_RAM`
   - Set this to the amount of RAM the server can use.
