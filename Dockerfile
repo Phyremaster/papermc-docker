@@ -12,7 +12,7 @@ ENV MC_VERSION="latest" \
 
 COPY papermc.sh .
 RUN apk update \
-    && apk add openjdk17-jre \
+    && apk add openjdk21-jre \
     && apk add bash \
     && apk add wget \
     && apk add jq \
