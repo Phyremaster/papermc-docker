@@ -3,7 +3,7 @@ name: Docker multiarch publish
 
 on:
   push:
-    branches: [ master ]
+    branches: [ openjdk21 ]
   workflow_dispatch: # Manual trigger
 
 jobs:
@@ -37,4 +37,4 @@ jobs:
           platforms: linux/amd64,,linux/arm64
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:openjdk21
