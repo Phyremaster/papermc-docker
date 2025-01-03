@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  papermc:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: papermc
+    ports:
+      - "25565:25565/tcp"
+      - "25565:25565/udp"
+    environment:
+      MC_VERSION: "${MC_VERSION:-latest}"        
+      PAPER_BUILD: "${PAPER_BUILD:-latest}"     
+      EULA: "${EULA:-false}"                    
+      MC_RAM: "${MC_RAM:-}"                 
+      JAVA_OPTS: "${JAVA_OPTS:-}"              
+    volumes:
+      - ./papermc:/papermc
+    stdin_open: true        
+    tty: true
