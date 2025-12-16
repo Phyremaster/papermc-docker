@@ -12,20 +12,35 @@ MC_VERSION="${MC_VERSION,,}"
 PAPER_BUILD="${PAPER_BUILD,,}"
 
 # Get version information and build download URL and jar name
-URL='https://papermc.io/api/v2/projects/paper'
+# New API https://fill.papermc.io/v3/projects/paper/versions/1.21.10/builds/117
+URL='https://fill.papermc.io/v3/projects/paper/versions'
 if [[ $MC_VERSION == latest ]]
 then
   # Get the latest MC version
-  MC_VERSION=$(wget -qO - "$URL" | jq -r '.versions[-1]') # "-r" is needed because the output has quotes otherwise
+  if [[ -e papermc.json ]]
+  then
+      rm papermc.json
+  fi
+  wget -qO papermc.json "$URL" # "-r" is needed because the output has quotes otherwise
+
+  MC_VERSION=$(jq -r '.versions[0].version.id' papermc.json) # "-r" is needed because the output has quotes otherwise
 fi
-URL="${URL}/versions/${MC_VERSION}"
+URL="${URL}/${MC_VERSION}"
+
 if [[ $PAPER_BUILD == latest ]]
 then
-  # Get the latest build
-  PAPER_BUILD=$(wget -qO - "$URL" | jq '.builds[-1]')
+    # Get the latest build
+    PAPER_BUILD=$(jq -r '.versions[0].builds[-1]' papermc.json) # "-r" is needed because the output has quotes otherwise
+    #  PAPER_BUILD=$(wget -qO - "$URL" | jq '.builds[-1]')
 fi
+URL="${URL}/builds/${PAPER_BUILD}"
 JAR_NAME="paper-${MC_VERSION}-${PAPER_BUILD}.jar"
-URL="${URL}/builds/${PAPER_BUILD}/downloads/${JAR_NAME}"
+
+if [[ $JAVA_OPTS == "" ]]
+then
+    JAVA_OPTS=$(jq -r '.versions[0].version.java.flags.recommended' papabermc.json | tr -d '",[]')
+fi
+DOWNLOAD_URL=$(wget -qO - "$URL" | jq -r '.downloads."server:default".url')
 
 # Update if necessary
 if [[ ! -e $JAR_NAME ]]
@@ -33,7 +48,7 @@ then
   # Remove old server jar(s)
   rm -f *.jar
   # Download new server jar
-  wget "$URL" -O "$JAR_NAME"
+  wget "${DOWNLOAD_URL}" -O "${JAR_NAME}"
 fi
 
 # Update eula.txt with current setting
